@@ -1,11 +1,11 @@
 const express = require("express");
-const helmet = require("helment");
+const helmet = require("helmet");
 const cors = require("cors");
 // create routes
 const routes = require("./api/routes/routes");
 const server = express();
 
-server.user(helment());
+server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
