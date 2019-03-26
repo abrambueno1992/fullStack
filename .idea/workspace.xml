@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a6d9f17-bcca-473b-83a6-ffec3b4830e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/api/controllers/loginPath.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/controllers/loginPath.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/controllers/recoverUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/controllers/recoverUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/controllers/updateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/controllers/updateUser.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/models/UserModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="52" selection-start-line="52" selection-end-line="57" selection-end-column="2" />
+            <state relative-caret-position="131">
+              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="41" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -36,22 +37,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/controllers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="120">
+              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/controllers/recoverUser.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/controllers/loginPath.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+            <state relative-caret-position="458">
+              <caret line="34" lean-forward="true" selection-end-line="37" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -79,9 +84,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/api/controllers/updateUser.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -104,13 +113,15 @@
         <option value="$PROJECT_DIR$/backend/api/routes/routes.js" />
         <option value="$PROJECT_DIR$/backend/api/controllers/index.js" />
         <option value="$PROJECT_DIR$/backend/api/controllers/loginPath.js" />
+        <option value="$PROJECT_DIR$/backend/api/controllers/recoverUser.js" />
+        <option value="$PROJECT_DIR$/backend/api/controllers/updateUser.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="716" />
+    <option name="x" value="585" />
     <option name="y" value="27" />
-    <option name="width" value="650" />
+    <option name="width" value="781" />
     <option name="height" value="741" />
   </component>
   <component name="ProjectView">
@@ -192,19 +203,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553607087538</updated>
-      <workItem from="1553607088979" duration="3367000" />
+      <workItem from="1553607088979" duration="4764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3367000" />
+    <option name="totallyTimeSpent" value="4764000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="716" y="27" width="650" height="741" extended-state="4" />
+    <frame x="585" y="27" width="781" height="741" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24848485" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24670185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
@@ -236,19 +247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/controllers/updateUser.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/models/UserModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="52" selection-start-line="52" selection-end-line="57" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/controllers/recoverUser.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/api/routes/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -256,10 +254,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/controllers/loginPath.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="34" lean-forward="true" selection-end-line="37" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/controllers/recoverUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/api/controllers/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="120">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -270,10 +282,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/controllers/loginPath.js">
+    <entry file="file://$PROJECT_DIR$/backend/api/models/UserModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        <state relative-caret-position="131">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="41" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/controllers/updateUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
         </state>
       </provider>
     </entry>
