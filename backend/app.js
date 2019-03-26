@@ -6,7 +6,7 @@ require("dotenv").config();
 const dotenv = require("dotenv").config();
 const uri = `${process.env.DB_MONGO_DB}`;
 
-mongoose.connect(uri);
+mongoose.connect('mongodb://localhost:27017/notes');
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 server.listen(port, () => {

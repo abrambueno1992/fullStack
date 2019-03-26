@@ -2,8 +2,8 @@ const User = require("../models/UserModel");
 const bcrypt = require("bcrypt");
 
 const createUser = (req, res) => {
-  const { username, password } = req.body;
-  const user = new User({ username, password });
+  const { username, password, secret } = req.body;
+  const user = new User({ username, password, secret });
   user
     .save()
     .then(user => res.status(201).send(user))
