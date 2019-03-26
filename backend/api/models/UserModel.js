@@ -20,27 +20,27 @@ const User = new Schema({
   }
 });
 
-User.pre("save", function save(next) {
-  if (!this.isModified("password")) return next();
-  bcrypt.genSalt(10, function(err, salt) {
-    if (err) {
-      return next(err);
-    }
-    bcrypt.hash(user.password, salt, null, function(err, hash) {
-      if (err) {
-        return next(err);
+
+User.pre("save", function (next) {
+  if (!this.isModified("secret") && !this.isModified("password")) return next();
+
+    bcrypt.hash(this.password, 12, (errp, hash) => {
+      if (errp) {
+        return next(errp);
       }
       this.password = hash;
+
       next();
     });
-    bcrypt.hash(user.secret, salt, null, function(err, hash) {
-      if (err) {
-        return next(err);
-      }
-      this.secret = hash;
-      next();
-    });
+  bcrypt.hash(this.secret, 12, (errp, hash) => {
+    if (errp) {
+      return next(errp);
+    }
+    this.secret = hash;
+
+    next();
   });
+
 });
 
 User.methods.checkPassword = function(plainTextPassword, callBack) {
