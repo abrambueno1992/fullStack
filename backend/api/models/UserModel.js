@@ -22,7 +22,7 @@ const User = new Schema({
 
 
 User.pre("save", function (next) {
-  if (!this.isModified("secret") && !this.isModified("password")) return next();
+  if (!this.isModified("password")) return next();
 
     bcrypt.hash(this.password, 12, (errp, hash) => {
       if (errp) {
@@ -32,6 +32,28 @@ User.pre("save", function (next) {
 
       next();
     });
+  // bcrypt.hash(this.secret, 12, (errp, hash) => {
+  //   if (errp) {
+  //     return next(errp);
+  //   }
+  //   this.secret = hash;
+  //
+  //   next();
+  // });
+  // bcrypt.hash(this.secret, 12, (errp, hash) => {
+  //   if (errp) {
+  //     return next(errp);
+  //   }
+  //   this.secret = hash;
+  //
+  //   next();
+  // });
+
+});
+User.pre("save", function (next) {
+  if (!this.isModified("secret")) return next();
+
+
   bcrypt.hash(this.secret, 12, (errp, hash) => {
     if (errp) {
       return next(errp);
@@ -40,9 +62,7 @@ User.pre("save", function (next) {
 
     next();
   });
-
-});
-
+})
 User.methods.checkPassword = function(plainTextPassword, callBack) {
   bcrypt.compare(plainTextPassword, this.password, (err, match) => {
     if (err) return callBack(err);
@@ -50,11 +70,21 @@ User.methods.checkPassword = function(plainTextPassword, callBack) {
   });
 };
 
-User.methods.checkSecret = function(plainTextSecret, callBack) {
-  bcrypt.compare(plainTextSecret, this.secret, (err, match) => {
+User.methods.checkSecret = function(plainTextPassword, callBack) {
+  bcrypt.compare(plainTextPassword, this.secret, (err, match) => {
     if (err) return callBack(err);
     callBack(null, match);
   });
 };
+
+User.methods.findAllUsers = function(callBack) {
+  callBack(this)
+}
+// User.methods.checkSecret = function(plainTextSecret, callBack) {
+//   bcrypt.compare(plainTextSecret, this.secret, (err, match) => {
+//     if (err) return callBack(err);
+//     callBack(null, match);
+//   });
+// };
 
 module.exports = mongoose.model("user", User);

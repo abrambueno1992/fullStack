@@ -6,16 +6,18 @@ const User = require("../models/UserModel")
 const recover = (req, res) => {
     const {username, secret} = req.body;
     let id;
-    User.findOne({username, secret}, (err, user) => {
+    User.findOne({username}, (err, user) => {
         if (err) {
             res.status(403).json({error: "Invalid username/secret, credentials"});
             return;
         }
         if (user === null) {
+            console.log("no user: ", username, " secret: ", secret)
             res.status(422).json({error: "No user with that username in user DB"});
             return;
         }
         user.checkSecret(secret, (noMatch,hashMatches) => {
+            console.log('this is the checkpassword:','noMatch: ', noMatch, ' hashMatch: ', hashMatches, ' user: ', user, ' username:', username, ' secret: ', secret )
             if (hashMatches === false) {
                 res.status(422).json({error: "secret doesn't match"});
                 return;

@@ -6,7 +6,7 @@ const User = require("../models/UserModel")
 const login = (req, res) => {
     const {username, password} = req.body;
     let id;
-    User.findOne({username, passowrd}, (err, user) => {
+    User.findOne({username}, (err, user) => {
         if (err) {
             res.status(403).json({error: "Invalid username/password, credentials"});
             return;

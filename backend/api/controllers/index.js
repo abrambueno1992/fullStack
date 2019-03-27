@@ -6,5 +6,5 @@ module.exports = {
   createUser,
   login,
   updateUser,
-  recover
+  recover,
 };
