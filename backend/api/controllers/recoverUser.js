@@ -12,12 +12,10 @@ const recover = (req, res) => {
             return;
         }
         if (user === null) {
-            console.log("no user: ", username, " secret: ", secret)
             res.status(422).json({error: "No user with that username in user DB"});
             return;
         }
         user.checkSecret(secret, (noMatch,hashMatches) => {
-            console.log('this is the checkpassword:','noMatch: ', noMatch, ' hashMatch: ', hashMatches, ' user: ', user, ' username:', username, ' secret: ', secret )
             if (hashMatches === false) {
                 res.status(422).json({error: "secret doesn't match"});
                 return;
