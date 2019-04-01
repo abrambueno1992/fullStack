@@ -1,0 +1,59 @@
+type Query {
+  info: String!
+  feed(filter: String, skip: Int, first: Int, orderBy: NoteOrderByInput): Feed!
+}
+
+type Feed {
+  notes: [Note!]!
+  count: Int!
+}
+enum NoteOrderByInput {
+  description_ASC
+  description_DESC
+  url_ASC
+  url_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type Mutation {
+  post(title: String!, note: String, check: Boolean, tag: String): Note!
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  #   vote(noteId: ID!): Vote
+}
+
+type Subscription {
+  newNote: Note
+  #   newVote: Vote
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  notes: [Note!]!
+}
+
+type Note {
+  id: ID!
+  title: String!
+  note: String
+  check: Boolean
+  tag: String
+  postedBy: User
+  #   description: String!
+  #   url: String!
+  #   votes: [Vote!]!
+}
+
+# type Vote {
+#   id: ID!
+#   note: Note!
+#   user: User!
+# }
