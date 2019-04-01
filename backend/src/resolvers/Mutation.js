@@ -4,7 +4,7 @@ const { APP_SECRET, getUserId } = require("../utils");
 
 function post(parent, args, context, info) {
   const userId = getUserId(context);
-  return context.prisma.createLink({
+  return context.prisma.createNote({
     title: args.title,
     note: args.note,
     check: args.check,
