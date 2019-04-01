@@ -8,10 +8,10 @@ type Feed {
   count: Int!
 }
 enum NoteOrderByInput {
-  description_ASC
-  description_DESC
-  url_ASC
-  url_DESC
+  title_ASC
+  title_DESC
+  tag_ASC
+  tag_DESC
   createdAt_ASC
   createdAt_DESC
 }
