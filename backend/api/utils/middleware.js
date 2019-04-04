@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 const User = require("../models/UserModel");
 const { mySecret } = require("../../config");
 const authenticate = (req, res, next) => {
