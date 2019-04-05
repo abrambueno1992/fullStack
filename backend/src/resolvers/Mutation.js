@@ -4,13 +4,18 @@ const { APP_SECRET, getUserId } = require("../utils");
 
 function post(parent, args, context, info) {
   const userId = getUserId(context);
-  return context.prisma.createNote({
+  console.log("returned userID:", userId);
+
+  const result = context.prisma.createNote({
     title: args.title,
     note: args.note,
     check: args.check,
     tag: args.tag,
+    // postedBy: { id: userId }
     postedBy: { connect: { id: userId } }
   });
+  //   console.log("returned result: ", result.postedBy());
+  return result;
 }
 
 async function signup(parent, args, context, info) {
