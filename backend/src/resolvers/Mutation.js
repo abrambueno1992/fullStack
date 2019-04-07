@@ -20,7 +20,8 @@ function post(parent, args, context, info) {
 
 async function signup(parent, args, context, info) {
   const password = await bcrypt.hash(args.password, 10);
-  const user = await context.prisma.createUser({ ...args, password });
+  const secret = await bcrypt.hash(args.secret, 10);
+  const user = await context.prisma.createUser({ ...args, password, secret });
 
   const token = jwt.sign({ userId: user.id }, APP_SECRET);
 
@@ -39,6 +40,26 @@ async function login(parent, args, context, info) {
   const valid = await bcrypt.compare(args.password, user.password);
   if (!valid) {
     throw new Error("Invalid password");
+  }
+
+  const token = jwt.sign({ userId: user.id }, APP_SECRET);
+
+  return {
+    token,
+    user
+  };
+}
+
+async function recover(parent, args, context, info) {
+  const user = await context.prisma.user({ email: args.email });
+
+  if (!user) {
+    throw new Error("No such user found");
+  }
+
+  const valid = await bcrypt.compare(args.secret, user.secret);
+  if (!valid) {
+    throw new Error("Invalid secret");
   }
 
   const token = jwt.sign({ userId: user.id }, APP_SECRET);

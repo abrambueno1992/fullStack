@@ -37,6 +37,7 @@ type User {
   id: ID!
   name: String!
   email: String!
+  secret: String!
   notes: [Note!]!
 }
 
