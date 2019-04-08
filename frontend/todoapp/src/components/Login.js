@@ -22,11 +22,12 @@ class Login extends Component {
         login: true, // switch between Login and SignUp
         email: '',
         password: '',
+        secret:'',
         name: '',
     }
 
     render() {
-        const { login, email, password, name } = this.state
+        const { login, email, password, name, secret } = this.state
         return (
             <div>
                 <h4 className="mv3">{login ? 'Login' : 'Sign Up'}</h4>
@@ -51,11 +52,17 @@ class Login extends Component {
                         type="password"
                         placeholder="Choose a safe password"
                     />
+                    <input
+                        value={secret}
+                        onChange={e => this.setState({ secret: e.target.value })}
+                        type="text"
+                        placeholder="Choose a safe secret"
+                    />
                 </div>
                 <div className="flex mt3">
                     <Mutation
                         mutation={login ? LOGIN_MUTATION : SIGNUP_MUTATION}
-                        variables={{ email, password, name }}
+                        variables={{ email, password, name, secret }}
                         onCompleted={data => this._confirm(data)}
                     >
                         {mutation => (
