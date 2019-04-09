@@ -3,8 +3,8 @@ import { AUTH_TOKEN } from '../constants'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 const SIGNUP_MUTATION = gql`
-    mutation SignupMutation($email: String!, $password: String!, $name: String!) {
-        signup(email: $email, password: $password, name: $name) {
+    mutation SignupMutation($email: String!, $password: String!, $name: String!, $secret: String!) {
+        signup(email: $email, password: $password, name: $name, secret: $secret) {
             token
         }
     }
