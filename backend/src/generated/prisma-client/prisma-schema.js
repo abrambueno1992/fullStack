@@ -362,6 +362,7 @@ type User {
   name: String!
   email: String!
   password: String!
+  secret: String!
   notes(where: NoteWhereInput, orderBy: NoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Note!]
 }
 
@@ -375,6 +376,7 @@ input UserCreateInput {
   name: String!
   email: String!
   password: String!
+  secret: String!
   notes: NoteCreateManyWithoutPostedByInput
 }
 
@@ -387,6 +389,7 @@ input UserCreateWithoutNotesInput {
   name: String!
   email: String!
   password: String!
+  secret: String!
 }
 
 type UserEdge {
@@ -403,6 +406,8 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
+  secret_ASC
+  secret_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -414,6 +419,7 @@ type UserPreviousValues {
   name: String!
   email: String!
   password: String!
+  secret: String!
 }
 
 type UserSubscriptionPayload {
@@ -438,6 +444,7 @@ input UserUpdateInput {
   name: String
   email: String
   password: String
+  secret: String
   notes: NoteUpdateManyWithoutPostedByInput
 }
 
@@ -445,6 +452,7 @@ input UserUpdateManyMutationInput {
   name: String
   email: String
   password: String
+  secret: String
 }
 
 input UserUpdateOneWithoutNotesInput {
@@ -460,6 +468,7 @@ input UserUpdateWithoutNotesDataInput {
   name: String
   email: String
   password: String
+  secret: String
 }
 
 input UserUpsertWithoutNotesInput {
@@ -524,6 +533,20 @@ input UserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
+  secret: String
+  secret_not: String
+  secret_in: [String!]
+  secret_not_in: [String!]
+  secret_lt: String
+  secret_lte: String
+  secret_gt: String
+  secret_gte: String
+  secret_contains: String
+  secret_not_contains: String
+  secret_starts_with: String
+  secret_not_starts_with: String
+  secret_ends_with: String
+  secret_not_ends_with: String
   notes_every: NoteWhereInput
   notes_some: NoteWhereInput
   notes_none: NoteWhereInput

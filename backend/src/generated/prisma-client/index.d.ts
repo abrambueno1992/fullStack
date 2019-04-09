@@ -171,6 +171,8 @@ export type UserOrderByInput =
   | "email_DESC"
   | "password_ASC"
   | "password_DESC"
+  | "secret_ASC"
+  | "secret_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -200,6 +202,7 @@ export interface UserCreateInput {
   name: String;
   email: String;
   password: String;
+  secret: String;
   notes?: NoteCreateManyWithoutPostedByInput;
 }
 
@@ -283,6 +286,20 @@ export interface UserWhereInput {
   password_not_starts_with?: String;
   password_ends_with?: String;
   password_not_ends_with?: String;
+  secret?: String;
+  secret_not?: String;
+  secret_in?: String[] | String;
+  secret_not_in?: String[] | String;
+  secret_lt?: String;
+  secret_lte?: String;
+  secret_gt?: String;
+  secret_gte?: String;
+  secret_contains?: String;
+  secret_not_contains?: String;
+  secret_starts_with?: String;
+  secret_not_starts_with?: String;
+  secret_ends_with?: String;
+  secret_not_ends_with?: String;
   notes_every?: NoteWhereInput;
   notes_some?: NoteWhereInput;
   notes_none?: NoteWhereInput;
@@ -398,6 +415,7 @@ export interface UserCreateWithoutNotesInput {
   name: String;
   email: String;
   password: String;
+  secret: String;
 }
 
 export interface NoteUpsertWithWhereUniqueWithoutPostedByInput {
@@ -491,6 +509,7 @@ export interface UserUpdateInput {
   name?: String;
   email?: String;
   password?: String;
+  secret?: String;
   notes?: NoteUpdateManyWithoutPostedByInput;
 }
 
@@ -498,6 +517,7 @@ export interface UserUpdateManyMutationInput {
   name?: String;
   email?: String;
   password?: String;
+  secret?: String;
 }
 
 export interface NoteCreateManyWithoutPostedByInput {
@@ -523,6 +543,7 @@ export interface UserUpdateWithoutNotesDataInput {
   name?: String;
   email?: String;
   password?: String;
+  secret?: String;
 }
 
 export interface NoteUpdateManyWithWhereNestedInput {
@@ -562,6 +583,7 @@ export interface UserPreviousValues {
   name: String;
   email: String;
   password: String;
+  secret: String;
 }
 
 export interface UserPreviousValuesPromise
@@ -571,6 +593,7 @@ export interface UserPreviousValuesPromise
   name: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  secret: () => Promise<String>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -580,6 +603,7 @@ export interface UserPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  secret: () => Promise<AsyncIterator<String>>;
 }
 
 export interface NotePreviousValues {
@@ -808,6 +832,7 @@ export interface User {
   name: String;
   email: String;
   password: String;
+  secret: String;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
@@ -815,6 +840,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   name: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  secret: () => Promise<String>;
   notes: <T = FragmentableArray<Note>>(
     args?: {
       where?: NoteWhereInput;
@@ -835,6 +861,7 @@ export interface UserSubscription
   name: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  secret: () => Promise<AsyncIterator<String>>;
   notes: <T = Promise<AsyncIterator<NoteSubscription>>>(
     args?: {
       where?: NoteWhereInput;
