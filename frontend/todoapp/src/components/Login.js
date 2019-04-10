@@ -88,24 +88,36 @@ class Login extends Component {
                         variant="outlined"
                         />
                     )}
-                    <input
-                        value={email}
-                        onChange={e => this.setState({ email: e.target.value })}
-                        type="text"
-                        placeholder="Your email address"
-                    />
-                    <input
-                        value={password}
-                        onChange={e => this.setState({ password: e.target.value })}
-                        type="password"
-                        placeholder="Choose a safe password"
-                    />
-                    <input
-                        value={secret}
-                        onChange={e => this.setState({ secret: e.target.value })}
-                        type="text"
-                        placeholder="Choose a safe secret"
-                    />
+                    
+                        <TextField
+                            id="outlined-name"
+                            label="Your email address"
+                            className={classes.textField}
+                            value={email}
+                            onChange={this.handleChange}
+                            margin="normal"
+                            variant="outlined"
+                        />
+
+                        <TextField
+                            id="outlined-name"
+                            label="Choose a safe password"
+                            className={classes.textField}
+                            value={password}
+                            onChange={this.handleChange}
+                            margin="normal"
+                            variant="outlined"
+                        />
+
+                        <TextField
+                            id="outlined-name"
+                            label="Choose a safe secret"
+                            className={classes.textField}
+                            value={secret}
+                            onChange={this.handleChange}
+                            margin="normal"
+                            variant="outlined"
+                        />
                     </form>
                 </div>
                 <div className="flex mt3">
