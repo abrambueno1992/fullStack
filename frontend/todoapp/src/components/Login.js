@@ -2,6 +2,44 @@ import React, { Component } from 'react'
 import { AUTH_TOKEN } from '../constants'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+const styles = theme => ({
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    textField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+    },
+    dense: {
+        marginTop: 16,
+    },
+    menu: {
+        width: 200,
+    },
+});
+
+const currencies = [
+    {
+        value: 'USD',
+        label: '$',
+    },
+    {
+        value: 'EUR',
+        label: '€',
+    },
+    {
+        value: 'BTC',
+        label: '฿',
+    },
+    {
+        value: 'JPY',
+        label: '¥',
+    },
+];
 const SIGNUP_MUTATION = gql`
     mutation SignupMutation($email: String!, $password: String!, $name: String!, $secret: String!) {
         signup(email: $email, password: $password, name: $name, secret: $secret) {
@@ -25,19 +63,29 @@ class Login extends Component {
         secret:'',
         name: '',
     }
+    handleChange = e => {
+        e.preventDefault()
+        this.setState({[e.target.name] : e.target.value})
+    }
 
     render() {
         const { login, email, password, name, secret } = this.state
+        const { classes } = this.props;
         return (
             <div>
                 <h4 className="mv3">{login ? 'Login' : 'Sign Up'}</h4>
                 <div className="flex flex-column">
+                    <form className={classes.container} noValidate autoComplete="off">
                     {!login && (
-                        <input
-                            value={name}
-                            onChange={e => this.setState({ name: e.target.value })}
-                            type="text"
-                            placeholder="Your name"
+
+                        <TextField
+                        id="outlined-name"
+                        label="Your name"
+                        className={classes.textField}
+                        value={name}
+                        onChange={this.handleChange}
+                        margin="normal"
+                        variant="outlined"
                         />
                     )}
                     <input
@@ -58,6 +106,7 @@ class Login extends Component {
                         type="text"
                         placeholder="Choose a safe secret"
                     />
+                    </form>
                 </div>
                 <div className="flex mt3">
                     <Mutation
@@ -95,4 +144,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default withStyles(styles)(Login)
