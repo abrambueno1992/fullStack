@@ -184,6 +184,7 @@ export type NoteWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
+<<<<<<< HEAD
 export interface NoteWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
@@ -255,6 +256,42 @@ export interface NoteWhereInput {
   AND?: NoteWhereInput[] | NoteWhereInput;
   OR?: NoteWhereInput[] | NoteWhereInput;
   NOT?: NoteWhereInput[] | NoteWhereInput;
+=======
+export interface NoteUpdateWithWhereUniqueWithoutPostedByInput {
+  where: NoteWhereUniqueInput;
+  data: NoteUpdateWithoutPostedByDataInput;
+}
+
+export interface UserCreateInput {
+  name: String;
+  email: String;
+  password: String;
+  secret: String;
+  notes?: NoteCreateManyWithoutPostedByInput;
+}
+
+export interface NoteUpdateManyWithoutPostedByInput {
+  create?: NoteCreateWithoutPostedByInput[] | NoteCreateWithoutPostedByInput;
+  delete?: NoteWhereUniqueInput[] | NoteWhereUniqueInput;
+  connect?: NoteWhereUniqueInput[] | NoteWhereUniqueInput;
+  set?: NoteWhereUniqueInput[] | NoteWhereUniqueInput;
+  disconnect?: NoteWhereUniqueInput[] | NoteWhereUniqueInput;
+  update?:
+    | NoteUpdateWithWhereUniqueWithoutPostedByInput[]
+    | NoteUpdateWithWhereUniqueWithoutPostedByInput;
+  upsert?:
+    | NoteUpsertWithWhereUniqueWithoutPostedByInput[]
+    | NoteUpsertWithWhereUniqueWithoutPostedByInput;
+  deleteMany?: NoteScalarWhereInput[] | NoteScalarWhereInput;
+  updateMany?:
+    | NoteUpdateManyWithWhereNestedInput[]
+    | NoteUpdateManyWithWhereNestedInput;
+}
+
+export interface UserUpsertWithoutNotesInput {
+  update: UserUpdateWithoutNotesDataInput;
+  create: UserCreateWithoutNotesInput;
+>>>>>>> ebee04a61bbb074e7660898f81a921ca302e122f
 }
 
 export interface UserWhereInput {
@@ -533,9 +570,23 @@ export interface NoteScalarWhereInput {
   NOT?: NoteScalarWhereInput[] | NoteScalarWhereInput;
 }
 
+<<<<<<< HEAD
 export interface NoteUpdateManyWithWhereNestedInput {
   where: NoteScalarWhereInput;
   data: NoteUpdateManyDataInput;
+=======
+export interface UserCreateWithoutNotesInput {
+  name: String;
+  email: String;
+  password: String;
+  secret: String;
+}
+
+export interface NoteUpsertWithWhereUniqueWithoutPostedByInput {
+  where: NoteWhereUniqueInput;
+  update: NoteUpdateWithoutPostedByDataInput;
+  create: NoteCreateWithoutPostedByInput;
+>>>>>>> ebee04a61bbb074e7660898f81a921ca302e122f
 }
 
 export interface NoteUpdateManyDataInput {
@@ -543,6 +594,91 @@ export interface NoteUpdateManyDataInput {
   note?: String;
   check?: Boolean;
   tag?: String;
+<<<<<<< HEAD
+=======
+  postedBy?: UserUpdateOneWithoutNotesInput;
+}
+
+export interface NoteWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  note?: String;
+  note_not?: String;
+  note_in?: String[] | String;
+  note_not_in?: String[] | String;
+  note_lt?: String;
+  note_lte?: String;
+  note_gt?: String;
+  note_gte?: String;
+  note_contains?: String;
+  note_not_contains?: String;
+  note_starts_with?: String;
+  note_not_starts_with?: String;
+  note_ends_with?: String;
+  note_not_ends_with?: String;
+  check?: Boolean;
+  check_not?: Boolean;
+  tag?: String;
+  tag_not?: String;
+  tag_in?: String[] | String;
+  tag_not_in?: String[] | String;
+  tag_lt?: String;
+  tag_lte?: String;
+  tag_gt?: String;
+  tag_gte?: String;
+  tag_contains?: String;
+  tag_not_contains?: String;
+  tag_starts_with?: String;
+  tag_not_starts_with?: String;
+  tag_ends_with?: String;
+  tag_not_ends_with?: String;
+  postedBy?: UserWhereInput;
+  AND?: NoteWhereInput[] | NoteWhereInput;
+  OR?: NoteWhereInput[] | NoteWhereInput;
+  NOT?: NoteWhereInput[] | NoteWhereInput;
+}
+
+export interface UserUpdateInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  secret?: String;
+  notes?: NoteUpdateManyWithoutPostedByInput;
+>>>>>>> ebee04a61bbb074e7660898f81a921ca302e122f
 }
 
 export interface UserUpdateManyMutationInput {
@@ -552,6 +688,7 @@ export interface UserUpdateManyMutationInput {
   secret?: String;
 }
 
+<<<<<<< HEAD
 export interface NoteSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
@@ -561,6 +698,37 @@ export interface NoteSubscriptionWhereInput {
   AND?: NoteSubscriptionWhereInput[] | NoteSubscriptionWhereInput;
   OR?: NoteSubscriptionWhereInput[] | NoteSubscriptionWhereInput;
   NOT?: NoteSubscriptionWhereInput[] | NoteSubscriptionWhereInput;
+=======
+export interface NoteCreateManyWithoutPostedByInput {
+  create?: NoteCreateWithoutPostedByInput[] | NoteCreateWithoutPostedByInput;
+  connect?: NoteWhereUniqueInput[] | NoteWhereUniqueInput;
+}
+
+export interface NoteUpdateManyMutationInput {
+  title?: String;
+  note?: String;
+  check?: Boolean;
+  tag?: String;
+}
+
+export interface NoteCreateWithoutPostedByInput {
+  title?: String;
+  note: String;
+  check?: Boolean;
+  tag?: String;
+}
+
+export interface UserUpdateWithoutNotesDataInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  secret?: String;
+}
+
+export interface NoteUpdateManyWithWhereNestedInput {
+  where: NoteScalarWhereInput;
+  data: NoteUpdateManyDataInput;
+>>>>>>> ebee04a61bbb074e7660898f81a921ca302e122f
 }
 
 export interface UserSubscriptionWhereInput {
@@ -578,6 +746,68 @@ export interface NodeNode {
   id: ID_Output;
 }
 
+<<<<<<< HEAD
+=======
+export interface UserPreviousValues {
+  id: ID_Output;
+  name: String;
+  email: String;
+  password: String;
+  secret: String;
+}
+
+export interface UserPreviousValuesPromise
+  extends Promise<UserPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  secret: () => Promise<String>;
+}
+
+export interface UserPreviousValuesSubscription
+  extends Promise<AsyncIterator<UserPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  secret: () => Promise<AsyncIterator<String>>;
+}
+
+export interface NotePreviousValues {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  title?: String;
+  note: String;
+  check?: Boolean;
+  tag?: String;
+}
+
+export interface NotePreviousValuesPromise
+  extends Promise<NotePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  note: () => Promise<String>;
+  check: () => Promise<Boolean>;
+  tag: () => Promise<String>;
+}
+
+export interface NotePreviousValuesSubscription
+  extends Promise<AsyncIterator<NotePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  title: () => Promise<AsyncIterator<String>>;
+  note: () => Promise<AsyncIterator<String>>;
+  check: () => Promise<AsyncIterator<Boolean>>;
+  tag: () => Promise<AsyncIterator<String>>;
+}
+
+>>>>>>> ebee04a61bbb074e7660898f81a921ca302e122f
 export interface Note {
   id: ID_Output;
   createdAt: DateTimeOutput;
@@ -734,6 +964,57 @@ export interface AggregateNoteSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+<<<<<<< HEAD
+=======
+export interface User {
+  id: ID_Output;
+  name: String;
+  email: String;
+  password: String;
+  secret: String;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  secret: () => Promise<String>;
+  notes: <T = FragmentableArray<Note>>(
+    args?: {
+      where?: NoteWhereInput;
+      orderBy?: NoteOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  secret: () => Promise<AsyncIterator<String>>;
+  notes: <T = Promise<AsyncIterator<NoteSubscription>>>(
+    args?: {
+      where?: NoteWhereInput;
+      orderBy?: NoteOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+>>>>>>> ebee04a61bbb074e7660898f81a921ca302e122f
 export interface UserConnection {
   pageInfo: PageInfo;
   edges: UserEdge[];

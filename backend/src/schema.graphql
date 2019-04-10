@@ -18,8 +18,14 @@ enum NoteOrderByInput {
 
 type Mutation {
   post(title: String!, note: String, check: Boolean, tag: String): Note!
-  signup(email: String!, password: String!, name: String!): AuthPayload
+  signup(
+    email: String!
+    password: String!
+    secret: String!
+    name: String!
+  ): AuthPayload
   login(email: String!, password: String!): AuthPayload
+  recover(email: String!, secret: String!): AuthPayload
   #   vote(noteId: ID!): Vote
 }
 
