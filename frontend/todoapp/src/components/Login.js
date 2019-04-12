@@ -2,34 +2,6 @@ import React, { Component } from "react";
 import { AUTH_TOKEN } from "../constants";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
-import { withStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import "../styles/Login.css";
-const styles = theme => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  header: {
-    textAlign: "center"
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit
-  },
-  dense: {
-    marginTop: 16
-  },
-  menu: {
-    width: 200
-  },
-  button: {
-    marginTop: "1em"
-  }
-});
-
 const SIGNUP_MUTATION = gql`
   mutation SignupMutation(
     $email: String!
@@ -58,61 +30,39 @@ class Login extends Component {
     secret: "",
     name: ""
   };
-  handleChange = e => {
-    e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
-  };
 
   render() {
     const { login, email, password, name, secret } = this.state;
-    const { classes } = this.props;
     return (
-      <div className={classes.header}>
+      <div>
         <h4 className="mv3">{login ? "Login" : "Sign Up"}</h4>
         <div className="flex flex-column">
-          <form className={classes.container} noValidate autoComplete="off">
-            {!login && (
-              <TextField
-                id="outlined-name"
-                label="Your name"
-                className={classes.textField}
-                value={name}
-                onChange={this.handleChange}
-                margin="normal"
-                variant="outlined"
-              />
-            )}
-
-            <TextField
-              id="outlined-name"
-              label="Your email address"
-              className={classes.textField}
-              value={email}
-              onChange={this.handleChange}
-              margin="normal"
-              variant="outlined"
+          {!login && (
+            <input
+              value={name}
+              onChange={e => this.setState({ name: e.target.value })}
+              type="text"
+              placeholder="Your name"
             />
-
-            <TextField
-              id="outlined-name"
-              label="Choose a safe password"
-              className={classes.textField}
-              value={password}
-              onChange={this.handleChange}
-              margin="normal"
-              variant="outlined"
-            />
-
-            <TextField
-              id="outlined-name"
-              label="Choose a safe secret"
-              className={classes.textField}
-              value={secret}
-              onChange={this.handleChange}
-              margin="normal"
-              variant="outlined"
-            />
-          </form>
+          )}
+          <input
+            value={email}
+            onChange={e => this.setState({ email: e.target.value })}
+            type="text"
+            placeholder="Your email address"
+          />
+          <input
+            value={password}
+            onChange={e => this.setState({ password: e.target.value })}
+            type="password"
+            placeholder="Choose a safe password"
+          />
+          <input
+            value={secret}
+            onChange={e => this.setState({ secret: e.target.value })}
+            type="text"
+            placeholder="Choose a safe secret"
+          />
         </div>
         <div className="flex mt3">
           <Mutation
@@ -122,31 +72,15 @@ class Login extends Component {
           >
             {mutation => (
               <div className="pointer mr2 button" onClick={mutation}>
-                {login ? (
-                  <Button variant="contained" className={classes.button}>
-                    login
-                  </Button>
-                ) : (
-                  <Button variant="contained" className={classes.button}>
-                    "create account"
-                  </Button>
-                )}
+                {login ? "login" : "create account"}
               </div>
             )}
           </Mutation>
           <div
-            className="toggle-option"
+            className="pointer button"
             onClick={() => this.setState({ login: !login })}
           >
-            {login ? (
-              <Button variant="contained" className={classes.button}>
-                need to create an account?
-              </Button>
-            ) : (
-              <Button variant="contained" className={classes.button}>
-                already have an account?
-              </Button>
-            )}
+            {login ? "need to create an account?" : "already have an account?"}
           </div>
         </div>
       </div>
@@ -164,4 +98,4 @@ class Login extends Component {
   };
 }
 
-export default withStyles(styles)(Login);
+export default Login;
