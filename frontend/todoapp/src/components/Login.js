@@ -44,6 +44,7 @@ class Login extends Component {
               type="text"
               placeholder="Your name"
             />
+<<<<<<< HEAD
           )}
           <input
             value={email}
@@ -63,6 +64,30 @@ class Login extends Component {
             type="text"
             placeholder="Choose a safe secret"
           />
+=======
+
+            <TextField
+              id="outlined-name"
+              label="Choose a safe password"
+              className={classes.textField}
+              value={password}
+              onChange={this.handleChange}
+              margin="normal"
+              variant="outlined"
+            />
+
+            <TextField
+              id="outlined-name"
+              label="Choose a safe secret"
+              className={classes.textField}
+              value={secret}
+              onChange={this.handleChange}
+              margin="normal"
+              variant="outlined"
+            />
+            
+          </form>
+>>>>>>> 13e5c75d56c872ec4dae206d574be852f4b4cbc9
         </div>
         <div className="flex mt3">
           <Mutation
