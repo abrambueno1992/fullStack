@@ -38,56 +38,50 @@ class Login extends Component {
         <h4 className="mv3">{login ? "Login" : "Sign Up"}</h4>
         <div className="flex flex-column">
           {!login && (
-            <input
-              value={name}
-              onChange={e => this.setState({ name: e.target.value })}
-              type="text"
-              placeholder="Your name"
-            />
-<<<<<<< HEAD
-          )}
-          <input
-            value={email}
-            onChange={e => this.setState({ email: e.target.value })}
-            type="text"
-            placeholder="Your email address"
-          />
-          <input
-            value={password}
-            onChange={e => this.setState({ password: e.target.value })}
-            type="password"
-            placeholder="Choose a safe password"
-          />
-          <input
-            value={secret}
-            onChange={e => this.setState({ secret: e.target.value })}
-            type="text"
-            placeholder="Choose a safe secret"
-          />
-=======
+              <form className={classes.container} noValidate autoComplete="off">
+                {!login && (
+                    <TextField
+                        id="outlined-name"
+                        label="Your name"
+                        className={classes.textField}
+                        value={name}
+                        onChange={this.handleChange}
+                        margin="normal"
+                        variant="outlined"
+                    />
+                )}
 
-            <TextField
-              id="outlined-name"
-              label="Choose a safe password"
-              className={classes.textField}
-              value={password}
-              onChange={this.handleChange}
-              margin="normal"
-              variant="outlined"
-            />
+                <TextField
+                    id="outlined-name"
+                    label="Your email address"
+                    className={classes.textField}
+                    value={email}
+                    onChange={this.handleChange}
+                    margin="normal"
+                    variant="outlined"
+                />
 
-            <TextField
-              id="outlined-name"
-              label="Choose a safe secret"
-              className={classes.textField}
-              value={secret}
-              onChange={this.handleChange}
-              margin="normal"
-              variant="outlined"
-            />
-            
-          </form>
->>>>>>> 13e5c75d56c872ec4dae206d574be852f4b4cbc9
+                <TextField
+                    id="outlined-name"
+                    label="Choose a safe password"
+                    className={classes.textField}
+                    value={password}
+                    onChange={this.handleChange}
+                    margin="normal"
+                    variant="outlined"
+                />
+
+                <TextField
+                    id="outlined-name"
+                    label="Choose a safe secret"
+                    className={classes.textField}
+                    value={secret}
+                    onChange={this.handleChange}
+                    margin="normal"
+                    variant="outlined"
+                />
+
+              </form>
         </div>
         <div className="flex mt3">
           <Mutation
