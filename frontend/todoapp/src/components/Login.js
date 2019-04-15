@@ -4,7 +4,7 @@ import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from '@material-ui/core/TextField';
-
+import Button from "@material-ui/core/Button";
 const styles = theme => ({
   container: {
     display: 'flex',
@@ -112,7 +112,25 @@ class Login extends Component {
           >
             {mutation => (
               <div className="pointer mr2 button" onClick={mutation}>
-                {login ? "login" : "create account"}
+                {login ? 
+                  
+                  <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                login
+              </Button>
+                  : 
+                  
+                  <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                create account
+              </Button>
+                  }
               </div>
             )}
           </Mutation>
@@ -120,7 +138,28 @@ class Login extends Component {
             className="pointer button"
             onClick={() => this.setState({ login: !login })}
           >
-            {login ? "need to create an account?" : "already have an account?"}
+            {login ? 
+              
+              
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                need to create an account?
+              </Button>
+              : 
+              
+              
+              
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                already have an account?
+              </Button>
+                }
           </div>
         </div>
       </div>
