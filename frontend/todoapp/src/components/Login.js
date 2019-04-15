@@ -2,6 +2,25 @@ import React, { Component } from "react";
 import { AUTH_TOKEN } from "../constants";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from '@material-ui/core/TextField';
+
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  dense: {
+    marginTop: 16,
+  },
+  menu: {
+    width: 200,
+  },
+});
 const SIGNUP_MUTATION = gql`
   mutation SignupMutation(
     $email: String!
@@ -33,6 +52,7 @@ class Login extends Component {
 
   render() {
     const { login, email, password, name, secret } = this.state;
+    const { classes } = this.props;
     return (
       <div>
         <h4 className="mv3">{login ? "Login" : "Sign Up"}</h4>
@@ -118,4 +138,4 @@ class Login extends Component {
   };
 }
 
-export default Login;
+export default withStyles(styles)(Login);
