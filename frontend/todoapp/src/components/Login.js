@@ -37,7 +37,7 @@ class Login extends Component {
       <div>
         <h4 className="mv3">{login ? "Login" : "Sign Up"}</h4>
         <div className="flex flex-column">
-          {!login && (
+          {/* {!login && ( */}
               <form className={classes.container} noValidate autoComplete="off">
                 {!login && (
                     <TextField
@@ -80,6 +80,7 @@ class Login extends Component {
                     margin="normal"
                     variant="outlined"
                 />
+                
 
               </form>
         </div>
