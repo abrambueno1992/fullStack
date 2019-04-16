@@ -119,7 +119,7 @@ class Login extends Component {
                 color="primary"
                 className={classes.button}
               >
-                login
+                Login
               </Button>
                   : 
                   
@@ -128,7 +128,7 @@ class Login extends Component {
                 color="primary"
                 className={classes.button}
               >
-                create account
+                Create New Account
               </Button>
                   }
               </div>
