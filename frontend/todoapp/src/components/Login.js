@@ -57,7 +57,7 @@ class Login extends Component {
       <div>
         <h4 className="mv3">{login ? "Login" : "Sign Up"}</h4>
         <div className="flex flex-column">
-          {/* {!login && ( */}
+          
               <form className={classes.container} noValidate autoComplete="off">
                 {!login && (
                     <TextField
