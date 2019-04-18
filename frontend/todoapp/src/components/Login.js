@@ -20,6 +20,17 @@ const styles = theme => ({
   menu: {
     width: 200,
   },
+  button: {
+    display: 'inline-flex',
+    marginLeft: '75%',
+    marginTop: "1em",
+    width: "25%",
+    alignItems: 'flex-end'
+  },
+  switch: {
+    marginTop: "1em",
+    width: "25%",
+  }
 });
 const SIGNUP_MUTATION = gql`
   mutation SignupMutation(
@@ -143,8 +154,8 @@ class Login extends Component {
               
               <Button
                 variant="contained"
-                color="primary"
-                className={classes.button}
+                color="secondary"
+                className={classes.switch}
               >
                 need to create an account?
               </Button>
@@ -154,8 +165,8 @@ class Login extends Component {
               
               <Button
                 variant="contained"
-                color="primary"
-                className={classes.button}
+                color="secondary"
+                className={classes.switch}
               >
                 already have an account?
               </Button>
